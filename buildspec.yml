@@ -1,11 +1,14 @@
 version: 0.2
 
 phases:
-  install:
-    runtime-versions:
-      python: 3.8
   build:
     commands:
-      - npm install -g aws-cli
-      - aws lambda update-function-code --function-name pipelinefunction --zip-file fileb://./buildspec.zip
-      - aws lambda publish-version --function-name pipelinefunction
+      # Étapes de build
+      - echo "Commence le déploiement du site statique"
+      - aws s3 sync ./s3://frontenduser/frontend.html s3://frontenduser --delete
+      # Mettez à jour l'option --cache-control selon vos besoins
+      - aws s3 cp s3://frontenduser s3://frontenduser --recursive --metadata-directive REPLACE --cache-control "max-age=604800, public"
+  post_build:
+    commands:
+      # Étapes après le build
+      - echo "Déploiement du site statique terminé avec succès"
