@@ -7,7 +7,7 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #3498db; /* Fond bleu */
+      background-color: #f0f0f0;
       margin: 0;
       padding: 0;
       display: flex;
@@ -24,18 +24,20 @@
       max-width: 600px;
       width: 100%;
       display: flex;
-      flex-direction: column;
-      align-items: center;
     }
 
     .logo {
       width: 200px;
-      margin-bottom: 20px;
+      margin-right: 20px;
+    }
+
+    .content {
+      flex: 1;
     }
 
     h2 {
       text-align: center;
-      color: #fff; /* Texte blanc */
+      color: #333;
     }
 
     input[type="text"],
@@ -69,7 +71,7 @@
     }
 
     .form-footer a {
-      color: #fff; /* Texte blanc */
+      color: #f37021;
       text-decoration: none;
     }
 
@@ -81,14 +83,16 @@
 <body>
   <div class="container">
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/1280px-Amazon_Web_Services_Logo.svg.png" alt="AWS Logo" class="logo">
-    <h2>Connexion</h2>
-    <form action="#" method="post">
-      <input type="text" name="username" placeholder="Nom d'utilisateur" required>
-      <input type="password" name="password" placeholder="Mot de passe" required>
-      <input type="submit" value="Se connecter">
-    </form>
-    <div class="form-footer">
-      <a href="#">Mot de passe oublié ?</a>
+    <div class="content">
+      <h2>Connexion</h2>
+      <form action="#" method="post">
+        <input type="text" name="username" placeholder="Nom d'utilisateur" required>
+        <input type="password" name="password" placeholder="Mot de passe" required>
+        <input type="submit" value="Se connecter">
+      </form>
+      <div class="form-footer">
+        <a href="#">Mot de passe oublié ?</a>
+      </div>
     </div>
   </div>
 </body>
